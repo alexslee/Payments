@@ -10,4 +10,9 @@
 
 @implementation StripePaymentService
 
+- (void)processPaymentAmount:(NSInteger)amt;
+{
+    NSLog(@"Thanks for using Stripe!");
+}
+
 @end

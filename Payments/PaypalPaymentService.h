@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentGateway.h"
 
-@interface PaypalPaymentService : NSObject
+@interface PaypalPaymentService : NSObject <PaymentDelegate>
+
+- (void)processPaymentAmount:(NSInteger)amt;
 
 @end

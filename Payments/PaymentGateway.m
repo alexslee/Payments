@@ -12,7 +12,7 @@
 
 - (void)processPaymentAmount:(NSInteger)amount;
 {
-    
+    [self.paymentDelegate processPaymentAmount:amount];
 }
 
 @end
