@@ -11,6 +11,7 @@
 #import "PaypalPaymentService.h"
 #import "AmazonPaymentService.h"
 #import "StripePaymentService.h"
+#import "ApplePaymentService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -19,7 +20,7 @@ int main(int argc, const char * argv[]) {
         PaypalPaymentService *paypal = [[PaypalPaymentService alloc] init];
         AmazonPaymentService *amazon = [[AmazonPaymentService alloc] init];
         StripePaymentService *stripe = [[StripePaymentService alloc] init];
-        
+        ApplePaymentService *applePay = [[ApplePaymentService alloc] init];
         
         //create a random # between 100 and 1000
         NSInteger amount = arc4random_uniform(901) + 100;
@@ -43,6 +44,10 @@ int main(int argc, const char * argv[]) {
             
             case 3:
                 paymentGateway.paymentDelegate = amazon;
+                break;
+            
+            case 4:
+                paymentGateway.paymentDelegate = applePay;
                 break;
             
             default:
