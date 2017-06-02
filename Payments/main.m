@@ -26,7 +26,30 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Thank you for shopping at acme.com. Your total today is $%ld. Please select your payment method. 1: Paypal, 2: Stripe, 3: Amazon",amount);
         
-        paymentGateway.paymentDelegate = amazon;
+        char str[255];
+        fgets(str,255,stdin);
+        
+        NSString *input = [NSString stringWithCString:str encoding:NSUTF8StringEncoding];
+        NSInteger selection = [input integerValue];
+        
+        switch (selection) {
+            case 1:
+                paymentGateway.paymentDelegate = paypal;
+                break;
+                
+            case 2:
+                paymentGateway.paymentDelegate = stripe;
+                break;
+            
+            case 3:
+                paymentGateway.paymentDelegate = amazon;
+                break;
+            
+            default:
+                NSLog(@"Didn't recognize input, defaulting to Paypal.");
+                paymentGateway.paymentDelegate = paypal;
+                break;
+        }
         
         [paymentGateway processPaymentAmount:amount];
     }
