@@ -13,4 +13,6 @@
 
 - (void)processPaymentAmount:(NSInteger)amt;
 
+- (BOOL)canProcessPayment;
+
 @end

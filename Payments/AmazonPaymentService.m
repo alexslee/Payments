@@ -12,7 +12,16 @@
 
 - (void)processPaymentAmount:(NSInteger)amt;
 {
-    NSLog(@"Thanks for using Amazon!");
+    if ([self canProcessPayment]) {
+        NSLog(@"Payment processed: $%ld. Thanks for using Amazon!",amt);
+    } else {
+        NSLog(@"Sorry, we couldn't process your payment.");
+    }
+}
+
+- (BOOL)canProcessPayment;
+{
+    return arc4random_uniform(2);
 }
 
 @end

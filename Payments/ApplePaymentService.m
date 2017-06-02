@@ -1,19 +1,19 @@
 //
-//  StripePaymentService.m
+//  ApplePaymentService.m
 //  Payments
 //
-//  Created by Alex Lee on 2017-06-01.
+//  Created by Alex Lee on 2017-06-02.
 //  Copyright © 2017 Alex Lee. All rights reserved.
 //
 
-#import "StripePaymentService.h"
+#import "ApplePaymentService.h"
 
-@implementation StripePaymentService
+@implementation ApplePaymentService
 
 - (void)processPaymentAmount:(NSInteger)amt;
 {
     if ([self canProcessPayment]) {
-        NSLog(@"Payment processed: $%ld. Thanks for using Stripe!",amt);
+        NSLog(@"Payment processed: $%ld. Thanks for using Apple Pay!",amt);
     } else {
         NSLog(@"Sorry, we couldn't process your payment.");
     }
